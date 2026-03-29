@@ -21,6 +21,6 @@
   "command.renameGroupFromNode.title": "重命名",
   "viewsContainer.projectManager.title": "工作区管理器",
   "views.projectManager.name": "工作区管理器",
-  "configuration.title": "Simple Workspace Manager",
+  "configuration.title": "简易工作区管理器",
   "configuration.openInNewWindow.description": "在新的 VS Code 窗口中打开所选项目。"
 }

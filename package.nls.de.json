@@ -1,8 +1,8 @@
 {
-  "displayName": "Einfacher Workspace-Manager",
+  "displayName": "Einfacher Arbeitsbereich-Manager",
   "description": "Erweiterter Projekt- und Gruppenmanager fur VS Code.",
-  "command.addCurrentWorkspace.title": "Aktuellen Workspace hinzufugen",
-  "command.addCurrentWorkspace.shortTitle": "Workspace hinzufugen",
+  "command.addCurrentWorkspace.title": "Aktuellen Arbeitsbereich hinzufugen",
+  "command.addCurrentWorkspace.shortTitle": "Arbeitsbereich hinzufugen",
   "command.addFolder.title": "Ordner hinzufugen",
   "command.addFolder.shortTitle": "Ordner hinzufugen",
   "command.openProject.title": "Projekt offnen",
@@ -19,8 +19,8 @@
   "command.removeProjectFromNode.shortTitle": "Auswahl entfernen",
   "command.renameGroup.title": "Gruppe umbenennen",
   "command.renameGroupFromNode.title": "Umbenennen",
-  "viewsContainer.projectManager.title": "Workspace-Manager",
-  "views.projectManager.name": "Workspace-Manager",
-  "configuration.title": "Simple Workspace Manager",
+  "viewsContainer.projectManager.title": "Arbeitsbereich-Manager",
+  "views.projectManager.name": "Arbeitsbereich-Manager",
+  "configuration.title": "Einfacher Arbeitsbereich-Manager",
   "configuration.openInNewWindow.description": "Ausgewahltes Projekt in einem neuen VS Code-Fenster offnen."
 }

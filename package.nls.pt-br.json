@@ -1,8 +1,8 @@
 {
-  "displayName": "Gerenciador Simples de Workspaces",
+  "displayName": "Gerenciador Simples de Espacos de Trabalho",
   "description": "Gerenciador avancado de projetos e grupos para o VS Code.",
-  "command.addCurrentWorkspace.title": "Adicionar workspace atual",
-  "command.addCurrentWorkspace.shortTitle": "Adicionar workspace",
+  "command.addCurrentWorkspace.title": "Adicionar espaco de trabalho atual",
+  "command.addCurrentWorkspace.shortTitle": "Adicionar espaco de trabalho",
   "command.addFolder.title": "Adicionar pasta",
   "command.addFolder.shortTitle": "Adicionar pasta",
   "command.openProject.title": "Abrir projeto",
@@ -19,8 +19,8 @@
   "command.removeProjectFromNode.shortTitle": "Remover selecionado",
   "command.renameGroup.title": "Renomear grupo",
   "command.renameGroupFromNode.title": "Renomear",
-  "viewsContainer.projectManager.title": "Gerenciador de workspaces",
-  "views.projectManager.name": "Gerenciador de workspaces",
-  "configuration.title": "Simple Workspace Manager",
+  "viewsContainer.projectManager.title": "Gerenciador de espacos de trabalho",
+  "views.projectManager.name": "Gerenciador de espacos de trabalho",
+  "configuration.title": "Gerenciador Simples de Espacos de Trabalho",
   "configuration.openInNewWindow.description": "Abrir o projeto selecionado em uma nova janela do VS Code."
 }
