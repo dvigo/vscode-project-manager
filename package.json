@@ -1,23 +1,167 @@
 {
   "name": "project-manager",
-  "displayName": "project-manager",
-  "description": "Gestor avanzado de proyectos y grupos para VS Code.",
+  "displayName": "%displayName%",
+  "description": "%description%",
   "version": "0.0.1",
+  "l10n": "./l10n",
   "engines": {
     "vscode": "^1.110.0"
   },
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "project-manager.helloWorld",
-        "title": "Hello World"
+        "command": "project-manager.addCurrentWorkspace",
+        "title": "%command.addCurrentWorkspace.title%",
+        "shortTitle": "%command.addCurrentWorkspace.shortTitle%",
+        "icon": {
+          "light": "media/light/add-workspace.svg",
+          "dark": "media/dark/add-workspace.svg"
+        }
+      },
+      {
+        "command": "project-manager.addFolder",
+        "title": "%command.addFolder.title%",
+        "shortTitle": "%command.addFolder.shortTitle%",
+        "icon": {
+          "light": "media/light/add-folder.svg",
+          "dark": "media/dark/add-folder.svg"
+        }
+      },
+      {
+        "command": "project-manager.openProject",
+        "title": "%command.openProject.title%",
+        "shortTitle": "%command.openProject.shortTitle%",
+        "icon": {
+          "light": "media/light/open-project.svg",
+          "dark": "media/dark/open-project.svg"
+        }
+      },
+      {
+        "command": "project-manager.openProjectInNewWindow",
+        "title": "%command.openProjectInNewWindow.title%",
+        "shortTitle": "%command.openProjectInNewWindow.shortTitle%",
+        "icon": {
+          "light": "media/light/open-new-window.svg",
+          "dark": "media/dark/open-new-window.svg"
+        }
+      },
+      {
+        "command": "project-manager.removeProject",
+        "title": "%command.removeProject.title%",
+        "shortTitle": "%command.removeProject.shortTitle%",
+        "icon": {
+          "light": "media/light/remove-project.svg",
+          "dark": "media/dark/remove-project.svg"
+        }
+      },
+      {
+        "command": "project-manager.refreshProjects",
+        "title": "%command.refreshProjects.title%",
+        "shortTitle": "%command.refreshProjects.shortTitle%",
+        "icon": {
+          "light": "media/light/refresh.svg",
+          "dark": "media/dark/refresh.svg"
+        }
+      },
+      {
+        "command": "project-manager.openProjectFromNode",
+        "title": "%command.openProjectFromNode.title%",
+        "shortTitle": "%command.openProjectFromNode.shortTitle%",
+        "icon": {
+          "light": "media/light/open-project.svg",
+          "dark": "media/dark/open-project.svg"
+        }
+      },
+      {
+        "command": "project-manager.removeProjectFromNode",
+        "title": "%command.removeProjectFromNode.title%",
+        "shortTitle": "%command.removeProjectFromNode.shortTitle%",
+        "icon": {
+          "light": "media/light/remove-project.svg",
+          "dark": "media/dark/remove-project.svg"
+        }
+      },
+      {
+        "command": "project-manager.renameGroup",
+        "title": "%command.renameGroup.title%"
+      },
+      {
+        "command": "project-manager.renameGroupFromNode",
+        "title": "%command.renameGroupFromNode.title%"
       }
-    ]
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "project-manager",
+          "title": "%viewsContainer.projectManager.title%",
+          "icon": "media/projects.svg"
+        }
+      ]
+    },
+    "views": {
+      "project-manager": [
+        {
+          "id": "project-manager.projectsView",
+          "name": "%views.projectManager.name%"
+        }
+      ]
+    },
+    "menus": {
+      "view/title": [
+        {
+          "command": "project-manager.addCurrentWorkspace",
+          "when": "view == project-manager.projectsView",
+          "group": "navigation@1"
+        },
+        {
+          "command": "project-manager.addFolder",
+          "when": "view == project-manager.projectsView",
+          "group": "navigation@2"
+        },
+        {
+          "command": "project-manager.refreshProjects",
+          "when": "view == project-manager.projectsView",
+          "group": "navigation@3"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "project-manager.openProjectFromNode",
+          "when": "view == project-manager.projectsView && viewItem == projectItem",
+          "group": "inline@1"
+        },
+        {
+          "command": "project-manager.openProjectInNewWindow",
+          "when": "view == project-manager.projectsView && viewItem == projectItem",
+          "group": "inline@2"
+        },
+        {
+          "command": "project-manager.removeProjectFromNode",
+          "when": "view == project-manager.projectsView && viewItem == projectItem",
+          "group": "inline@3"
+        },
+        {
+          "command": "project-manager.renameGroupFromNode",
+          "when": "view == project-manager.projectsView && viewItem == groupItem",
+          "group": "navigation@1"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "%configuration.title%",
+      "properties": {
+        "projectManager.openInNewWindow": {
+          "type": "boolean",
+          "default": false,
+          "description": "%configuration.openInNewWindow.description%"
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",

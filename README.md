@@ -1,71 +1,43 @@
-# project-manager README
+# Project Manager
 
-This is the README for your extension "project-manager". After writing up a brief description, we recommend including the following sections.
+Project Manager es una extension para gestionar y abrir rapidamente tus proyectos frecuentes desde una vista dedicada en VS Code.
 
-## Features
+## Caracteristicas
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- Guarda proyectos de forma persistente usando `globalState` de VS Code.
+- Agrupa proyectos por categorias (por ejemplo: `Trabajo`, `Personal`, `Cliente-X`).
+- Vista lateral en Activity Bar para navegar y abrir proyectos con un click.
+- Comandos para agregar carpeta actual, agregar carpeta externa, abrir y eliminar proyectos.
 
-For example if there is an image subfolder under your extension project workspace:
+## Uso rapido
 
-\!\[feature X\]\(images/feature-x.png\)
+1. Abre el Command Palette (`Cmd+Shift+P`).
+2. Ejecuta `Project Manager: Add Current Workspace` para guardar el workspace activo.
+3. Ejecuta `Project Manager: Add Folder` para agregar carpetas externas.
+4. Abre proyectos desde:
+	- `Project Manager: Open Project`.
+	- La vista lateral `Projects` en el Activity Bar.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+## Comandos disponibles
 
-## Requirements
+- `Project Manager: Add Current Workspace`
+- `Project Manager: Add Folder`
+- `Project Manager: Open Project`
+- `Project Manager: Remove Project`
+- `Project Manager: Refresh Projects`
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+## Configuracion
 
-## Extension Settings
+Esta extension contribuye los siguientes settings:
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+- `projectManager.openInNewWindow`: abre el proyecto en una ventana nueva.
+- `projectManager.confirmBeforeRemove`: pide confirmacion antes de eliminar un proyecto guardado.
 
-For example:
+## Estado actual
 
-This extension contributes the following settings:
+Esta version es un MVP inspirado en extensiones como `vscode-projects`. Base ideal para evolucionar con:
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+- import/export de listas de proyectos,
+- proyectos remotos,
+- deteccion automatica de repositorios,
+- soporte de workspaces multi-root guardados.
