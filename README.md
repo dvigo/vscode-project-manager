@@ -1,43 +1,69 @@
 # Project Manager
 
-Project Manager es una extension para gestionar y abrir rapidamente tus proyectos frecuentes desde una vista dedicada en VS Code.
+Project Manager helps you organize and launch your most used workspaces from a dedicated sidebar in VS Code.
 
-## Caracteristicas
+This release is the first public beta.
 
-- Guarda proyectos de forma persistente usando `globalState` de VS Code.
-- Agrupa proyectos por categorias (por ejemplo: `Trabajo`, `Personal`, `Cliente-X`).
-- Vista lateral en Activity Bar para navegar y abrir proyectos con un click.
-- Comandos para agregar carpeta actual, agregar carpeta externa, abrir y eliminar proyectos.
+## Features
 
-## Uso rapido
+- Persistent project/workspace list stored with VS Code global state.
+- Group-based organization for fast navigation.
+- Dedicated Activity Bar view (`Project manager`).
+- One-click open actions:
+	- open in current window,
+	- open in a new window,
+	- remove workspace (with confirmation).
+- Group rename support from context menu.
+- Localization support for:
+	- English,
+	- Spanish,
+	- French,
+	- German,
+	- Portuguese (Brazil),
+	- Chinese (Simplified).
 
-1. Abre el Command Palette (`Cmd+Shift+P`).
-2. Ejecuta `Project Manager: Add Current Workspace` para guardar el workspace activo.
-3. Ejecuta `Project Manager: Add Folder` para agregar carpetas externas.
-4. Abre proyectos desde:
-	- `Project Manager: Open Project`.
-	- La vista lateral `Projects` en el Activity Bar.
+## Quick Start
 
-## Comandos disponibles
+1. Open Command Palette (`Cmd/Ctrl + Shift + P`).
+2. Run `Add Current Workspace` to save your current workspace.
+3. Run `Add Folder` to add external folders.
+4. Open the `Project manager` view from the Activity Bar.
+5. Use inline actions to open, open in a new window, or remove entries.
 
-- `Project Manager: Add Current Workspace`
-- `Project Manager: Add Folder`
-- `Project Manager: Open Project`
-- `Project Manager: Remove Project`
-- `Project Manager: Refresh Projects`
+## Commands
 
-## Configuracion
+- `Add Current Workspace`
+- `Add Folder`
+- `Open Project`
+- `Open in a New Window`
+- `Remove Project`
+- `Refresh Projects`
+- `Rename Group`
 
-Esta extension contribuye los siguientes settings:
+## Settings
 
-- `projectManager.openInNewWindow`: abre el proyecto en una ventana nueva.
-- `projectManager.confirmBeforeRemove`: pide confirmacion antes de eliminar un proyecto guardado.
+- `projectManager.openInNewWindow`: default preference for opening selected workspaces in a new VS Code window.
 
-## Estado actual
+## Beta Notes
 
-Esta version es un MVP inspirado en extensiones como `vscode-projects`. Base ideal para evolucionar con:
+- This is a preview build (`0.1.0-beta.1`).
+- Feedback and issues are welcome.
+- Backward compatibility is not guaranteed until stable `1.0.0`.
 
-- import/export de listas de proyectos,
-- proyectos remotos,
-- deteccion automatica de repositorios,
-- soporte de workspaces multi-root guardados.
+## Development
+
+```bash
+npm install
+npm run compile
+npm run lint
+npm test
+```
+
+Run with `F5` to start an Extension Development Host.
+
+## Publish Checklist (Marketplace)
+
+1. Ensure tests pass (`npm test`).
+2. Update `CHANGELOG.md`.
+3. Tag and publish pre-release package.
+4. Verify localized command titles and runtime messages.

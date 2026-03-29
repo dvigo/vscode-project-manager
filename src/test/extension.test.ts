@@ -1,15 +1,29 @@
 import * as assert from 'assert';
-
-// You can import and use all API from the 'vscode' module
-// as well as import your extension to test it
 import * as vscode from 'vscode';
-// import * as myExtension from '../../extension';
 
 suite('Extension Test Suite', () => {
-	vscode.window.showInformationMessage('Start all tests.');
+	const expectedCommands = [
+		'project-manager.addCurrentWorkspace',
+		'project-manager.addFolder',
+		'project-manager.openProject',
+		'project-manager.openProjectInNewWindow',
+		'project-manager.removeProject',
+		'project-manager.refreshProjects',
+		'project-manager.openProjectFromNode',
+		'project-manager.removeProjectFromNode',
+		'project-manager.renameGroup',
+		'project-manager.renameGroupFromNode'
+	];
 
-	test('Sample test', () => {
-		assert.strictEqual(-1, [1, 2, 3].indexOf(5));
-		assert.strictEqual(-1, [1, 2, 3].indexOf(0));
+	test('contributes expected commands', async () => {
+		const extension = vscode.extensions.all.find((item) => item.packageJSON.name === 'project-manager');
+		assert.ok(extension, 'Development extension project-manager was not found.');
+		await extension?.activate();
+
+		const commands = await vscode.commands.getCommands(true);
+
+		for (const commandId of expectedCommands) {
+			assert.ok(commands.includes(commandId), `Expected command not found: ${commandId}`);
+		}
 	});
 });
