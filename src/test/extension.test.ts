@@ -16,8 +16,8 @@ suite('Extension Test Suite', () => {
 	];
 
 	test('contributes expected commands', async () => {
-		const extension = vscode.extensions.all.find((item) => item.packageJSON.name === 'project-manager');
-		assert.ok(extension, 'Development extension project-manager was not found.');
+		const extension = vscode.extensions.all.find((item) => item.packageJSON.name === 'simple-project-manager');
+		assert.ok(extension, 'Development extension simple-project-manager was not found.');
 		await extension?.activate();
 
 		const commands = await vscode.commands.getCommands(true);

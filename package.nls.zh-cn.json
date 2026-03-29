@@ -1,5 +1,5 @@
 {
-  "displayName": "项目管理器",
+  "displayName": "Simple 项目管理器",
   "description": "适用于 VS Code 的高级项目和分组管理器。",
   "command.addCurrentWorkspace.title": "添加当前工作区",
   "command.addCurrentWorkspace.shortTitle": "添加工作区",

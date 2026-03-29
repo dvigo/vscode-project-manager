@@ -46,7 +46,7 @@ This release is the first public beta.
 
 ## Beta Notes
 
-- This is a preview build (`0.1.0-beta.1`).
+- This is a preview build (`0.1.0`) published as pre-release.
 - Feedback and issues are welcome.
 - Backward compatibility is not guaranteed until stable `1.0.0`.
 

@@ -1,5 +1,5 @@
 {
-  "displayName": "Projektmanager",
+  "displayName": "Simple Projektmanager",
   "description": "Erweiterter Projekt- und Gruppenmanager fur VS Code.",
   "command.addCurrentWorkspace.title": "Aktuellen Workspace hinzufugen",
   "command.addCurrentWorkspace.shortTitle": "Workspace hinzufugen",

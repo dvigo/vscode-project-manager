@@ -1,5 +1,5 @@
 {
-  "displayName": "Project Manager",
+  "displayName": "Simple Project Manager",
   "description": "Advanced project and group manager for VS Code.",
   "command.addCurrentWorkspace.title": "Add Current Workspace",
   "command.addCurrentWorkspace.shortTitle": "Add Workspace",

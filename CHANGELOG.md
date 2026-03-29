@@ -8,7 +8,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - Ongoing improvements and fixes.
 
-## [0.1.0-beta.1] - 2026-03-29
+## [0.1.0] - 2026-03-29
 
 - First public beta release.
 - Added project/workspace manager view in Activity Bar.

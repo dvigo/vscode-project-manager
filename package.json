@@ -1,18 +1,18 @@
 {
-  "name": "project-manager",
+  "name": "simple-project-manager",
   "displayName": "%displayName%",
   "description": "%description%",
-  "version": "0.1.0-beta.1",
-  "publisher": "dvigodev",
+  "version": "0.1.0",
+  "publisher": "dvigo",
   "preview": true,
   "l10n": "./l10n",
   "repository": {
     "type": "git",
-    "url": "https://github.com/dvigodev/vscode-project-manager.git"
+    "url": "https://github.com/dvigo/vscode-project-manager.git"
   },
-  "homepage": "https://github.com/dvigodev/vscode-project-manager#readme",
+  "homepage": "https://github.com/dvigo/vscode-project-manager#readme",
   "bugs": {
-    "url": "https://github.com/dvigodev/vscode-project-manager/issues"
+    "url": "https://github.com/dvigo/vscode-project-manager/issues"
   },
   "keywords": [
     "project",
@@ -28,6 +28,7 @@
   "categories": [
     "Other"
   ],
+  "icon": "media/marketplace-logo.svg.png",
   "main": "./out/extension.js",
   "contributes": {
     "commands": [

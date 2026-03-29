@@ -1,0 +1,21 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="64" y1="56" x2="448" y2="456" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0EA5A4"/>
+      <stop offset="1" stop-color="#0B5FFF"/>
+    </linearGradient>
+    <linearGradient id="folder" x1="112" y1="170" x2="400" y2="348" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="1" stop-color="#E9F0FF" stop-opacity="0.95"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="48" y="48" width="416" height="416" rx="96" fill="url(#bg)"/>
+
+  <path d="M126 176h104l26 30h130v128c0 24-20 44-44 44H170c-24 0-44-20-44-44V176z" fill="url(#folder)"/>
+  <path d="M126 220h260" stroke="#7D90C2" stroke-width="14" stroke-linecap="round"/>
+
+  <rect x="180" y="254" width="58" height="58" rx="16" fill="#0B5FFF"/>
+  <rect x="273" y="254" width="58" height="58" rx="16" fill="#0EA5A4"/>
+  <rect x="226.5" y="326" width="58" height="58" rx="16" fill="#0F172A" fill-opacity="0.18"/>
+</svg>
