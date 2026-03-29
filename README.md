@@ -1,8 +1,8 @@
-# Project Manager
+# Simple Workspace Manager
 
-Project Manager helps you organize and launch your most used workspaces from a dedicated sidebar in VS Code.
+Simple Workspace Manager helps you organize and launch your most used workspaces from a dedicated sidebar in VS Code.
 
-This release is the first public beta.
+This is the first stable public release (`1.0.0`).
 
 ## Features
 
@@ -44,11 +44,11 @@ This release is the first public beta.
 
 - `projectManager.openInNewWindow`: default preference for opening selected workspaces in a new VS Code window.
 
-## Beta Notes
+## Release Notes
 
-- This is a preview build (`0.1.0`) published as pre-release.
-- Feedback and issues are welcome.
-- Backward compatibility is not guaranteed until stable `1.0.0`.
+- Stable public release: `1.0.0`.
+- Ready for Marketplace installation and updates.
+- Backward-compatible command IDs and persisted storage key.
 
 ## Development
 
@@ -65,5 +65,6 @@ Run with `F5` to start an Extension Development Host.
 
 1. Ensure tests pass (`npm test`).
 2. Update `CHANGELOG.md`.
-3. Tag and publish pre-release package.
-4. Verify localized command titles and runtime messages.
+3. Create package: `npx @vscode/vsce package`.
+4. Publish stable: `npx @vscode/vsce publish`.
+5. Verify localized command titles and runtime messages.

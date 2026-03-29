@@ -19,8 +19,8 @@
   "command.removeProjectFromNode.shortTitle": "Remove Selected",
   "command.renameGroup.title": "Rename Group",
   "command.renameGroupFromNode.title": "Rename",
-  "viewsContainer.projectManager.title": "Project manager",
-  "views.projectManager.name": "Project manager",
-  "configuration.title": "Project Manager",
+  "viewsContainer.projectManager.title": "Workspace manager",
+  "views.projectManager.name": "Workspace manager",
+  "configuration.title": "Simple Workspace Manager",
   "configuration.openInNewWindow.description": "Open selected project in a new VS Code window."
 }

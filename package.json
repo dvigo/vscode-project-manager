@@ -1,10 +1,10 @@
 {
-  "name": "simple-project-manager",
+  "name": "simple-workspace-manager",
   "displayName": "%displayName%",
   "description": "%description%",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "publisher": "dvigo",
-  "preview": true,
+  "preview": false,
   "l10n": "./l10n",
   "repository": {
     "type": "git",

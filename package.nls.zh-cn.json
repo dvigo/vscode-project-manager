@@ -19,8 +19,8 @@
   "command.removeProjectFromNode.shortTitle": "删除所选",
   "command.renameGroup.title": "重命名分组",
   "command.renameGroupFromNode.title": "重命名",
-  "viewsContainer.projectManager.title": "项目管理器",
-  "views.projectManager.name": "项目管理器",
-  "configuration.title": "Project Manager",
+  "viewsContainer.projectManager.title": "工作区管理器",
+  "views.projectManager.name": "工作区管理器",
+  "configuration.title": "Simple Workspace Manager",
   "configuration.openInNewWindow.description": "在新的 VS Code 窗口中打开所选项目。"
 }
