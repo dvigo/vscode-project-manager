@@ -1,5 +1,5 @@
 {
-  "displayName": "Simple Gerenciador de Projetos",
+  "displayName": "Gerenciador Simples de Workspaces",
   "description": "Gerenciador avancado de projetos e grupos para o VS Code.",
   "command.addCurrentWorkspace.title": "Adicionar workspace atual",
   "command.addCurrentWorkspace.shortTitle": "Adicionar workspace",

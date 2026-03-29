@@ -118,7 +118,7 @@
         {
           "id": "project-manager",
           "title": "%viewsContainer.projectManager.title%",
-          "icon": "media/projects.svg"
+          "icon": "media/projects-minimal.svg"
         }
       ]
     },
