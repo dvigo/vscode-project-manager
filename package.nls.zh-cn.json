@@ -13,6 +13,7 @@
   "command.removeProject.shortTitle": "删除项目",
   "command.refreshProjects.title": "刷新项目",
   "command.refreshProjects.shortTitle": "刷新",
+  "command.searchProjects.title": "搜索项目",
   "command.openProjectFromNode.title": "打开所选项目",
   "command.openProjectFromNode.shortTitle": "打开所选",
   "command.removeProjectFromNode.title": "删除所选项目",

@@ -4,9 +4,14 @@ All notable changes to the "simple-workspace-manager" extension will be document
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## [Unreleased]
+## [1.1.0] - 2026-03-31
 
-- Ongoing improvements and fixes.
+### Added
+- Search functionality for projects in the Project Manager view.
+- Search button in the view title bar with search icon.
+- Interactive search panel using QuickPick to find projects by name, group, or path.
+- Improved tree data provider with parent-child relationship support for better filtering.
+- Support for filtering label, description, and detail in project search.
 
 ## [1.0.0] - 2026-03-29
 

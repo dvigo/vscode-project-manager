@@ -13,6 +13,7 @@
   "command.removeProject.shortTitle": "Projekt entfernen",
   "command.refreshProjects.title": "Projekte aktualisieren",
   "command.refreshProjects.shortTitle": "Aktualisieren",
+  "command.searchProjects.title": "Projekte durchsuchen",
   "command.openProjectFromNode.title": "Ausgewahltes Projekt offnen",
   "command.openProjectFromNode.shortTitle": "Auswahl offnen",
   "command.removeProjectFromNode.title": "Ausgewahltes Projekt entfernen",

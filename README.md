@@ -9,6 +9,7 @@ This is the first stable public release (`1.0.0`).
 - Persistent project/workspace list stored with VS Code global state.
 - Group-based organization for fast navigation.
 - Dedicated Activity Bar view (`Project manager`).
+- **Search functionality** to quickly find projects by name, group, or path.
 - One-click open actions:
 	- open in current window,
 	- open in a new window,
@@ -39,6 +40,7 @@ This is the first stable public release (`1.0.0`).
 - `Remove Project`
 - `Refresh Projects`
 - `Rename Group`
+- `Search Projects` (new) - Search for projects using an interactive panel
 
 ## Settings
 
@@ -46,7 +48,8 @@ This is the first stable public release (`1.0.0`).
 
 ## Release Notes
 
-- Stable public release: `1.0.0`.
+- Version `1.1.0`: Added search functionality for projects.
+- Version `1.0.0`: First stable public release.
 - Ready for Marketplace installation and updates.
 - Backward-compatible command IDs and persisted storage key.
 

@@ -269,6 +269,26 @@ async function renameGroup(
 	);
 }
 
+async function searchProjects(store: ProjectStore): Promise<void> {
+	const projects = store.getAll();
+	const items = buildProjectQuickPickItems(projects);
+
+	const picked = await vscode.window.showQuickPick(items, {
+		title: t('Search Projects'),
+		placeHolder: t('Type to search by project name, group, or path...'),
+		ignoreFocusOut: false,
+		matchOnDescription: true,
+		matchOnDetail: true
+	});
+
+	if (picked) {
+		const project = projects.find(p => p.name === picked.label && p.group === picked.description);
+		if (project) {
+			await openProject(store, project);
+		}
+	}
+}
+
 export function registerProjectCommands(
 	context: vscode.ExtensionContext,
 	store: ProjectStore,
@@ -297,6 +317,7 @@ export function registerProjectCommands(
 		vscode.commands.registerCommand('project-manager.renameGroupFromNode', async (input: GroupNode | string | undefined) => {
 			await renameGroup(store, provider, input);
 		}),
+		vscode.commands.registerCommand('project-manager.searchProjects', () => searchProjects(store)),
 		vscode.commands.registerCommand('project-manager.refreshProjects', () => provider.refresh()),
 		vscode.commands.registerCommand('project-manager.openProjectFromNode', async (input: ProjectItem | ProjectNode | undefined) => {
 			const selectedProject = asProjectItem(input);

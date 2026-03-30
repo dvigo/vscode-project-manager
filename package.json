@@ -2,7 +2,7 @@
   "name": "simple-workspace-manager",
   "displayName": "%displayName%",
   "description": "%description%",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "publisher": "dvigo",
   "preview": false,
   "l10n": "./l10n",
@@ -111,6 +111,11 @@
       {
         "command": "project-manager.renameGroupFromNode",
         "title": "%command.renameGroupFromNode.title%"
+      },
+      {
+        "command": "project-manager.searchProjects",
+        "title": "%command.searchProjects.title%",
+        "icon": "$(search)"
       }
     ],
     "viewsContainers": {
@@ -126,12 +131,20 @@
       "project-manager": [
         {
           "id": "project-manager.projectsView",
-          "name": "%views.projectManager.name%"
+          "name": "%views.projectManager.name%",
+          "canFilterByLabel": true,
+          "canMatchOnDescription": true,
+          "canMatchOnDetail": true
         }
       ]
     },
     "menus": {
       "view/title": [
+        {
+          "command": "project-manager.searchProjects",
+          "when": "view == project-manager.projectsView",
+          "group": "navigation@0"
+        },
         {
           "command": "project-manager.addCurrentWorkspace",
           "when": "view == project-manager.projectsView",

@@ -29,10 +29,12 @@ export class GroupNode extends vscode.TreeItem {
 export class ProjectsProvider implements vscode.TreeDataProvider<vscode.TreeItem> {
 	private readonly onDidChangeTreeDataEmitter = new vscode.EventEmitter<void>();
 	public readonly onDidChangeTreeData = this.onDidChangeTreeDataEmitter.event;
+	private groupNodesMap = new Map<string, GroupNode>();
 
 	constructor(private readonly store: ProjectStore) {}
 
 	public refresh(): void {
+		this.groupNodesMap.clear();
 		this.onDidChangeTreeDataEmitter.fire();
 	}
 
@@ -44,7 +46,15 @@ export class ProjectsProvider implements vscode.TreeDataProvider<vscode.TreeItem
 		const projects = this.store.getAll();
 
 		if (!element) {
-			return getSortedGroupNames(projects).map((groupName) => new GroupNode(groupName));
+			const groupNames = getSortedGroupNames(projects);
+			const groupNodes = groupNames.map((groupName) => new GroupNode(groupName));
+			// Cache group nodes for getParent
+			groupNodes.forEach(node => {
+				if (node instanceof GroupNode) {
+					this.groupNodesMap.set(node.groupName, node);
+				}
+			});
+			return groupNodes;
 		}
 
 		if (element instanceof GroupNode) {
@@ -55,5 +65,12 @@ export class ProjectsProvider implements vscode.TreeDataProvider<vscode.TreeItem
 		}
 
 		return [];
+	}
+
+	public getParent(element: vscode.TreeItem): vscode.ProviderResult<vscode.TreeItem> {
+		if (element instanceof ProjectNode) {
+			return this.groupNodesMap.get(element.project.group);
+		}
+		return null;
 	}
 }
