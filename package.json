@@ -2,7 +2,7 @@
   "name": "simple-workspace-manager",
   "displayName": "%displayName%",
   "description": "%description%",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "publisher": "dvigo",
   "preview": false,
   "l10n": "./l10n",

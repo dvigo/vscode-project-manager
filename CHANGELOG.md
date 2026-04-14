@@ -4,6 +4,11 @@ All notable changes to the "simple-workspace-manager" extension will be document
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.2.1] - 2026-04-14
+
+### Fixed
+- Reverted to optimized marketplace logo for better visual consistency.
+
 ## [1.2.0] - 2026-04-14
 
 ### Updated
