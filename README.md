@@ -2,7 +2,7 @@
 
 Simple Workspace Manager helps you organize and launch your most used workspaces from a dedicated sidebar in VS Code.
 
-This is the first stable public release (`1.0.0`).
+This is the latest stable release (`1.2.0`).
 
 ## Features
 
@@ -48,6 +48,7 @@ This is the first stable public release (`1.0.0`).
 
 ## Release Notes
 
+- Version `1.2.0`: Updated branding and visual identity.
 - Version `1.1.0`: Added search functionality for projects.
 - Version `1.0.0`: First stable public release.
 - Ready for Marketplace installation and updates.

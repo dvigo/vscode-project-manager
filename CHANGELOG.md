@@ -4,6 +4,12 @@ All notable changes to the "simple-workspace-manager" extension will be document
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.2.0] - 2026-04-14
+
+### Updated
+- New visual identity for the Project Manager.
+- Updated documentation and internal assets.
+
 ## [1.1.0] - 2026-03-31
 
 ### Added
