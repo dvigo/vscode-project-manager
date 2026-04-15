@@ -2,7 +2,7 @@
   "name": "simple-workspace-manager",
   "displayName": "%displayName%",
   "description": "%description%",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "publisher": "dvigo",
   "preview": false,
   "l10n": "./l10n",
@@ -23,7 +23,7 @@
   ],
   "license": "MIT",
   "engines": {
-    "vscode": "^1.110.0"
+    "vscode": "^1.107.0"
   },
   "categories": [
     "Other"
@@ -204,7 +204,7 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.110.0",
+    "@types/vscode": "^1.107.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "22.x",
     "typescript-eslint": "^8.56.1",

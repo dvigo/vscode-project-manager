@@ -4,6 +4,11 @@ All notable changes to the "simple-workspace-manager" extension will be document
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
+## [1.2.2] - 2026-04-15
+
+### Fixed
+- Changed minimum VS Code engine version to `^1.107.0` to support Antigravity compatibility.
+
 ## [1.2.1] - 2026-04-14
 
 ### Fixed
