@@ -4,21 +4,16 @@ All notable changes to the "simple-workspace-manager" extension will be document
 
 Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
 
-## [1.2.2] - 2026-04-15
+## [1.3.0] - 2026-04-19
 
-### Fixed
-- Changed minimum VS Code engine version to `^1.107.0` to support Antigravity compatibility.
-
-## [1.2.1] - 2026-04-14
-
-### Fixed
-- Reverted to optimized marketplace logo for better visual consistency.
-
-## [1.2.0] - 2026-04-14
-
-### Updated
-- New visual identity for the Project Manager.
-- Updated documentation and internal assets.
+### Added
+- New **Project Groups** management system.
+- Dedicated command and icon to **Create Group** from the sidebar.
+- Interactive group selection when adding new projects.
+- Ability to **Move projects** between groups using the context menu.
+- Ability to **Delete groups** with automatic project fallback to the "General" group.
+- New custom icons for group management.
+- Improved group renaming logic with merge support.
 
 ## [1.1.0] - 2026-03-31
 

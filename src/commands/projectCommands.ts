@@ -76,6 +76,45 @@ async function addProjectFromFolderPicker(store: ProjectStore, provider: Project
 	await addProject(store, provider, picked[0].fsPath);
 }
 
+async function pickGroup(store: ProjectStore, title: string): Promise<string | undefined> {
+	const groups = getSortedGroupNames(store.getAll());
+	const items: vscode.QuickPickItem[] = [
+		...groups.map((group) => ({ label: group })),
+		{ label: `+ ${t('Create new group...')}`, alwaysShow: true }
+	];
+
+	const picked = await vscode.window.showQuickPick(items, {
+		title,
+		ignoreFocusOut: true,
+		placeHolder: t('Select a group or create a new one')
+	});
+
+	if (!picked) {
+		return undefined;
+	}
+
+	if (picked.label === `+ ${t('Create new group...')}`) {
+		const newGroup = await vscode.window.showInputBox({
+			title: t('New group name'),
+			ignoreFocusOut: true,
+			validateInput: (value) => {
+				const trimmed = value.trim();
+				if (!trimmed) {
+					return t('Group name is required.');
+				}
+				if (groups.includes(trimmed)) {
+					return t('Group "{0}" already exists.', trimmed);
+				}
+				return undefined;
+			}
+		});
+
+		return newGroup?.trim();
+	}
+
+	return picked.label;
+}
+
 async function addProject(store: ProjectStore, provider: ProjectsProvider, projectPath: string): Promise<void> {
 	const defaultName = defaultProjectNameFromPath(projectPath, t('Project'));
 	const name = await vscode.window.showInputBox({
@@ -89,24 +128,22 @@ async function addProject(store: ProjectStore, provider: ProjectsProvider, proje
 		return;
 	}
 
-	const group =
-		(await vscode.window.showInputBox({
-			title: t('Project group'),
-			value: DEFAULT_GROUP,
-			ignoreFocusOut: true
-		})) ?? DEFAULT_GROUP;
+	const group = await pickGroup(store, t('Select group for project "{0}"', name));
+	if (!group) {
+		return;
+	}
 
 	const project: ProjectItem = {
 		id: `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`,
 		name: name.trim(),
 		path: projectPath,
-		group: group.trim() || DEFAULT_GROUP,
+		group: group,
 		createdAt: Date.now()
 	};
 
 	await store.upsert(project);
 	provider.refresh();
-	vscode.window.showInformationMessage(t('Project "{0}" saved.', project.name));
+	vscode.window.showInformationMessage(t('Project "{0}" saved in group "{1}".', project.name, project.group));
 }
 
 async function pickProject(store: ProjectStore, title: string): Promise<ProjectItem | undefined> {
@@ -269,6 +306,103 @@ async function renameGroup(
 	);
 }
 
+async function createGroup(store: ProjectStore, provider: ProjectsProvider): Promise<void> {
+	const name = await vscode.window.showInputBox({
+		title: t('Create new group'),
+		ignoreFocusOut: true,
+		validateInput: (value) => {
+			const trimmed = value.trim();
+			if (!trimmed) {
+				return t('Group name is required.');
+			}
+			const groups = getSortedGroupNames(store.getAll());
+			if (groups.includes(trimmed)) {
+				return t('Group "{0}" already exists.', trimmed);
+			}
+			return undefined;
+		}
+	});
+
+	if (!name) {
+		return;
+	}
+
+	const projects = store.getAll();
+	if (projects.length === 0) {
+		vscode.window.showInformationMessage(t('Group "{0}" created. Add projects to see it.', name.trim()));
+		return;
+	}
+
+	const moveDecision = await vscode.window.showInformationMessage(
+		t('Group "{0}" created. Would you like to move a project to it?', name.trim()),
+		t('Yes'),
+		t('No')
+	);
+
+	if (moveDecision === t('Yes')) {
+		const selectedProject = await pickProject(store, t('Select a project to move to "{0}"', name.trim()));
+		if (selectedProject) {
+			selectedProject.group = name.trim();
+			await store.upsert(selectedProject);
+			provider.refresh();
+			vscode.window.showInformationMessage(t('Project "{0}" moved to group "{1}".', selectedProject.name, selectedProject.group));
+		}
+	}
+}
+
+async function moveProjectToGroup(
+	store: ProjectStore,
+	provider: ProjectsProvider,
+	input: ProjectItem | ProjectNode | undefined
+): Promise<void> {
+	const project = asProjectItem(input) ?? (await pickProject(store, t('Select a project to move')));
+	if (!project) {
+		return;
+	}
+
+	const targetGroup = await pickGroup(store, t('Move project "{0}" to group', project.name));
+	if (!targetGroup || targetGroup === project.group) {
+		return;
+	}
+
+	project.group = targetGroup;
+	await store.upsert(project);
+	provider.refresh();
+	vscode.window.showInformationMessage(t('Project "{0}" moved to group "{1}".', project.name, project.group));
+}
+
+async function deleteGroup(
+	store: ProjectStore,
+	provider: ProjectsProvider,
+	input: GroupNode | string | undefined
+): Promise<void> {
+	const groupName = asGroupName(input) ?? (await pickGroupName(store, t('Select the group to delete')));
+	if (!groupName) {
+		return;
+	}
+
+	if (groupName === DEFAULT_GROUP) {
+		vscode.window.showWarningMessage(t('The default group "{0}" cannot be deleted.', DEFAULT_GROUP));
+		return;
+	}
+
+	const decision = await vscode.window.showWarningMessage(
+		t('The group "{0}" will be deleted. Projects within it will be moved to "{1}".', groupName, DEFAULT_GROUP),
+		{ modal: true },
+		t('Delete')
+	);
+
+	if (decision !== t('Delete')) {
+		return;
+	}
+
+	const movedCount = await store.removeGroup(groupName, DEFAULT_GROUP);
+	provider.refresh();
+	vscode.window.showInformationMessage(
+		t('Group "{0}" deleted. {1} project(s) moved to "{2}".', groupName, movedCount, DEFAULT_GROUP)
+	);
+}
+
 async function searchProjects(store: ProjectStore): Promise<void> {
 	const projects = store.getAll();
 	const items = buildProjectQuickPickItems(projects);
@@ -316,6 +450,16 @@ export function registerProjectCommands(
 		}),
 		vscode.commands.registerCommand('project-manager.renameGroupFromNode', async (input: GroupNode | string | undefined) => {
 			await renameGroup(store, provider, input);
+		}),
+		vscode.commands.registerCommand('project-manager.createGroup', () => createGroup(store, provider)),
+		vscode.commands.registerCommand('project-manager.moveProjectToGroup', async (input: ProjectItem | ProjectNode | undefined) => {
+			await moveProjectToGroup(store, provider, input);
+		}),
+		vscode.commands.registerCommand('project-manager.deleteGroup', async () => {
+			await deleteGroup(store, provider, undefined);
+		}),
+		vscode.commands.registerCommand('project-manager.deleteGroupFromNode', async (input: GroupNode | string | undefined) => {
+			await deleteGroup(store, provider, input);
 		}),
 		vscode.commands.registerCommand('project-manager.searchProjects', () => searchProjects(store)),
 		vscode.commands.registerCommand('project-manager.refreshProjects', () => provider.refresh()),

@@ -2,7 +2,7 @@
   "name": "simple-workspace-manager",
   "displayName": "%displayName%",
   "description": "%description%",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "publisher": "dvigo",
   "preview": false,
   "l10n": "./l10n",
@@ -23,7 +23,7 @@
   ],
   "license": "MIT",
   "engines": {
-    "vscode": "^1.107.0"
+    "vscode": "^1.110.0"
   },
   "categories": [
     "Other"
@@ -113,6 +113,26 @@
         "title": "%command.renameGroupFromNode.title%"
       },
       {
+        "command": "project-manager.createGroup",
+        "title": "%command.createGroup.title%",
+        "icon": {
+          "light": "media/light/add-group.svg",
+          "dark": "media/dark/add-group.svg"
+        }
+      },
+      {
+        "command": "project-manager.moveProjectToGroup",
+        "title": "%command.moveProjectToGroup.title%"
+      },
+      {
+        "command": "project-manager.deleteGroup",
+        "title": "%command.deleteGroup.title%"
+      },
+      {
+        "command": "project-manager.deleteGroupFromNode",
+        "title": "%command.deleteGroupFromNode.title%"
+      },
+      {
         "command": "project-manager.searchProjects",
         "title": "%command.searchProjects.title%",
         "icon": "$(search)"
@@ -156,9 +176,14 @@
           "group": "navigation@2"
         },
         {
-          "command": "project-manager.refreshProjects",
+          "command": "project-manager.createGroup",
           "when": "view == project-manager.projectsView",
           "group": "navigation@3"
+        },
+        {
+          "command": "project-manager.refreshProjects",
+          "when": "view == project-manager.projectsView",
+          "group": "navigation@4"
         }
       ],
       "view/item/context": [
@@ -180,6 +205,16 @@
         {
           "command": "project-manager.renameGroupFromNode",
           "when": "view == project-manager.projectsView && viewItem == groupItem",
+          "group": "navigation@1"
+        },
+        {
+          "command": "project-manager.deleteGroupFromNode",
+          "when": "view == project-manager.projectsView && viewItem == groupItem",
+          "group": "navigation@2"
+        },
+        {
+          "command": "project-manager.moveProjectToGroup",
+          "when": "view == project-manager.projectsView && viewItem == projectItem",
           "group": "navigation@1"
         }
       ]
@@ -204,7 +239,7 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.107.0",
+    "@types/vscode": "^1.110.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "22.x",
     "typescript-eslint": "^8.56.1",

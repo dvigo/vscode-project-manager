@@ -1,70 +1,80 @@
-<p align="center">
-  <img src="media/marketplace-logo.svg.png" width="128" alt="Simple Workspace Manager Logo">
-</p>
+# Simple Workspace Manager
 
-<h1 align="center">Simple Workspace Manager</h1>
+Simple Workspace Manager helps you organize and launch your most used workspaces from a dedicated sidebar in VS Code.
 
-<p align="center">
-  <strong>The efficient way to organize and switch between your VS Code projects.</strong>
-</p>
+This is the first stable public release (`1.0.0`).
 
-<p align="center">
-  <a href="https://marketplace.visualstudio.com/items?itemName=dvigo.simple-workspace-manager">
-    <img src="https://img.shields.io/visual-studio-marketplace/v/dvigo.simple-workspace-manager?style=for-the-badge&logo=visual-studio-code" alt="Visual Studio Marketplace">
-  </a>
-  <a href="https://marketplace.visualstudio.com/items?itemName=dvigo.simple-workspace-manager">
-    <img src="https://img.shields.io/visual-studio-marketplace/i/dvigo.simple-workspace-manager?style=for-the-badge" alt="Installs">
-  </a>
-  <a href="LICENSE">
-    <img src="https://img.shields.io/github/license/dvigo/vscode-project-manager?style=for-the-badge" alt="License">
-  </a>
-</p>
+## Features
 
----
+- Persistent project/workspace list stored with VS Code global state.
+- Group-based organization for fast navigation.
+- Dedicated Activity Bar view (`Project manager`).
+- **Search functionality** to quickly find projects by name, group, or path.
+- One-click open actions:
+	- open in current window,
+	- open in a new window,
+	- remove workspace (with confirmation).
+- **Advanced Group Management**:
+	- Create and delete groups.
+	- Move projects between groups effortlessly.
+	- Automatic fallback to "General" group when a group is deleted.
+- Localization support for:
+	- English,
+	- Spanish,
+	- French,
+	- German,
+	- Portuguese (Brazil),
+	- Chinese (Simplified).
 
-Simple Workspace Manager helps you organize and launch your most used workspaces and projects from a dedicated sidebar in VS Code. Stop digging through folders and keep your workflow focused.
+## Quick Start
 
-## 🚀 Key Features
+1. Open Command Palette (`Cmd/Ctrl + Shift + P`).
+2. Run `Add Current Workspace` to save your current workspace.
+3. Run `Add Folder` to add external folders.
+4. Open the `Project manager` view from the Activity Bar.
+5. Use inline actions to open, open in a new window, or remove entries.
 
-*   🏷️ **Smart Grouping**: Organize your projects into custom groups for better navigation.
-*   🔍 **Instant Search**: Find any project by name, group, or path with an interactive search panel.
-*   ⚡ **Quick Actions**: Open projects in the current window or a new one with a single click.
-*   🌐 **Localized**: Support for 6 languages out of the box (EN, ES, FR, DE, PT, ZH).
-*   📦 **Lightweight**: Minimal performance impact, focused on doing one thing perfectly.
+## Commands
 
-## 📥 Installation
+- `Add Current Workspace`
+- `Add Folder`
+- `Open Project`
+- `Open in a New Window`
+- `Remove Project`
+- `Refresh Projects`
+- `Rename Group`
+- `Create Group` (new) - Create a new empty group.
+- `Move Project to Group` (new) - Move projects between groups.
+- `Delete Group` (new) - Delete a group and reassign projects.
+- `Search Projects` - Search for projects using an interactive panel.
 
-1. Open **VS Code**.
-2. Go to the **Extensions** view (`Cmd+Shift+X`).
-3. Search for `Simple Workspace Manager`.
-4. Click **Install**.
+## Settings
 
-## 📖 How to Use
+- `projectManager.openInNewWindow`: default preference for opening selected workspaces in a new VS Code window.
 
-### ➕ Adding Projects
-*   **Current Workspace**: Run `Add Current Workspace` from the Command Palette.
-*   **Any Folder**: Run `Add Folder` and select the directory you want to save.
+## Release Notes
 
-### 🔍 Finding Projects
-Click on the **Project Manager** icon in the Activity Bar to see all your saved entries. Use the magnifying glass icon at the top of the view to start searching.
+- Version `1.3.0`: Added full Project Groups management (Create, Move, Delete).
+- Version `1.1.0`: Added search functionality for projects.
+- Version `1.0.0`: First stable public release.
+- Ready for Marketplace installation and updates.
+- Backward-compatible command IDs and persisted storage key.
 
-## ⌨️ Commands
+## Development
 
-| Command | Description |
-| :--- | :--- |
-| `project-manager.addCurrentWorkspace` | Save the current window as a project. |
-| `project-manager.addFolder` | Path-based project registration. |
-| `project-manager.searchProjects` | Interactive project filtering. |
-| `project-manager.renameGroup` | Change organizational group names. |
+```bash
+npm install
+npm run compile
+npm run lint
+npm test
+```
 
-## ⚙️ Settings
+Run with `F5` to start an Extension Development Host.
 
-| Setting | Type | Default | Description |
-| :--- | :--- | :--- | :--- |
-| `projectManager.openInNewWindow` | `boolean` | `false` | Prefer opening projects in new windows. |
+## Publish Checklist (Marketplace)
 
----
-
-<p align="center">
-  Developed with ❤️ for the VS Code community.
-</p>
+1. Ensure tests pass (`npm test`).
+2. Update `CHANGELOG.md`.
+3. Create package: `npx @vscode/vsce package`.
+4. Publish stable: `npx @vscode/vsce publish`.
+5. Verify localized command titles and runtime messages.

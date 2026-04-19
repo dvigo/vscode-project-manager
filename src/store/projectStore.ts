@@ -69,4 +69,24 @@ export class ProjectStore {
 
 		return renamedCount;
 	}
+
+	public async removeGroup(groupName: string, defaultGroup: string): Promise<number> {
+		let movedCount = 0;
+		const items = this.getAll().map((item) => {
+			if (item.group === groupName) {
+				movedCount += 1;
+				return {
+					...item,
+					group: defaultGroup
+				};
+			}
+			return item;
+		});
+
+		if (movedCount > 0) {
+			await this.saveAll(items);
+		}
+
+		return movedCount;
+	}
 }
